@@ -1,0 +1,31 @@
+var Main={initMenuNav:function(){var a=false;
+
+$(".sousMenu").hover(function(){a=true;
+
+$(this).closest("tr").fadeIn();
+
+$(this).fadeIn()},function(){$(this).stop(true,true).fadeOut(function(){$(".bgHeader").find(".toHide.advert").show()});
+
+$(".btnMenu.selected").removeClass("selected")});
+
+$(".btnMenu2").on("click",function(){var c=$(this),b=$(this).data("name");
+
+$(".sousMenu2.selected").fadeOut(function(){$(this).removeClass("selected");
+
+$("#"+b).fadeIn(function(){$(this).addClass("selected")})});
+
+$(".btnMenu2.selected").removeClass("selected");
+
+$(this).addClass("selected")});
+
+$("li.expand").on("click","a",function(c){c.preventDefault();
+
+var b=$(this).closest("li.main");
+
+if(b.hasClass("expanded")){b.removeClass("expanded");
+
+if(!$(this).parent().hasClass("main")){window.location=$(this).attr("href")}}else{b.addClass("expanded")}})},init:function(){Main.initMenuNav()}};
+
+$(function(){Main.init()});
+
+
